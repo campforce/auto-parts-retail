@@ -8,7 +8,7 @@ jobs:
       - name: Install Dependencies
         run: npm install sfdx-cli    
       - name: Populate auth file
-        run: 'echo "${{ secrets.SALESFORCE_AUTH_URL }}" > .SALESFORCE_AUTH_URL.txt'
+        run: 'echo "${{ secrets.PRODUCTION_SFDX_AUTH_URL }}" > .SALESFORCE_AUTH_URL.txt'
       - name: Authenticate Dev Hub
         run: 'node_modules/sfdx-cli/bin/run force:auth:sfdxurl:store -f .SALESFORCE_AUTH_URL.txt -a devhub -d'
       - name: Set Default Username
