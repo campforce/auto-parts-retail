@@ -15,8 +15,8 @@ Salesforce application of auto parts retailer. 🚘🛠⚙️
 1. Clone this repository:
 
     ```
-    git clone https://github.com/campforce/property-management.git
-    cd property-management
+    git clone https://github.com/campforce/auto-parts-retail.git
+    cd auto-parts-retail
     ```
 
 1. Authorize your hub org:
@@ -36,19 +36,12 @@ Salesforce application of auto parts retailer. 🚘🛠⚙️
     ```
     sfdx force:source:push
     ```
-
-1. Assign the **superuser** permission set to enable super feaures:
-
-    ```
-    sfdx force:user:permset:assign -n superuser
-    ```
-
 1. Open the scratch org:
 
     ```
     sfdx force:org:open
     ```
 ## Contributors
-<a href = "https://github.com/campforce/property-management/graphs/contributors">
+<a href = "https://github.com/campforce/auto-parts-retail/graphs/contributors">
   <img src = "https://contrib.rocks/image?repo=campforce/auto-parts-retail"/>
 </a>

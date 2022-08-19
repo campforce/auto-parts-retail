@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sorted>false</sorted>
+    <standardValue>
+        <fullName>Storage</fullName>
+        <default>false</default>
+        <label>Storage</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Commission</fullName>
+        <default>false</default>
+        <label>Commission</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Transportation</fullName>
+        <default>false</default>
+        <label>Transportation</label>
+    </standardValue>
+    <standardValue>
+        <fullName>Sell</fullName>
+        <default>false</default>
+        <label>Sell</label>
+    </standardValue>
+</StandardValueSet>
