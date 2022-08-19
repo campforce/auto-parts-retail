@@ -513,10 +513,6 @@
     </userPermissions>
     <userPermissions>
         <enabled>true</enabled>
-        <name>FieldServiceAccess</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
         <name>GiveRecognitionBadge</name>
     </userPermissions>
     <userPermissions>
@@ -966,9 +962,5 @@
     <userPermissions>
         <enabled>true</enabled>
         <name>ViewUserPII</name>
-    </userPermissions>
-    <userPermissions>
-        <enabled>true</enabled>
-        <name>WorkCalibrationUser</name>
     </userPermissions>
 </Profile>
