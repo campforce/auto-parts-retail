@@ -12,9 +12,29 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Sold</fullName>
+                <fullName>Auction</fullName>
                 <default>false</default>
-                <label>Sold</label>
+                <label>Auction</label>
+            </value>
+            <value>
+                <fullName>On The Road</fullName>
+                <default>false</default>
+                <label>On The Road</label>
+            </value>
+            <value>
+                <fullName>In The Yard</fullName>
+                <default>false</default>
+                <label>In The Yard</label>
+            </value>
+            <value>
+                <fullName>Dismantling</fullName>
+                <default>false</default>
+                <label>Dismantling</label>
+            </value>
+            <value>
+                <fullName>Done</fullName>
+                <default>false</default>
+                <label>Done</label>
             </value>
         </valueSetDefinition>
     </valueSet>
