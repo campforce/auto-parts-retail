@@ -16,11 +16,14 @@
                 <default>false</default>
                 <label>Sold</label>
             </value>
+<<<<<<< HEAD
             <value>
                 <fullName>In Progress</fullName>
                 <default>false</default>
                 <label>In Progress</label>
             </value>
+=======
+>>>>>>> uat
         </valueSetDefinition>
     </valueSet>
 </CustomField>
