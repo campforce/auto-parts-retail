@@ -11,9 +11,11 @@
     <label>Auto Parts Retail</label>
     <navType>Standard</navType>
     <tabs>standard-Account</tabs>
+    <tabs>standard-Contact</tabs>
     <tabs>Car__c</tabs>
     <tabs>Car_Part__c</tabs>
     <tabs>Container__c</tabs>
+    <tabs>standard-Lead</tabs>
     <tabs>standard-FinanceTransaction</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Auto_Parts_Retail_UtilityBar</utilityBar>
