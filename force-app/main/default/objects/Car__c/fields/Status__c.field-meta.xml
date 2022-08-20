@@ -36,6 +36,16 @@
                 <default>false</default>
                 <label>Done</label>
             </value>
+            <value>
+                <fullName>In Progress</fullName>
+                <default>false</default>
+                <label>In Progress</label>
+            </value>
+            <value>
+                <fullName>Hold on</fullName>
+                <default>false</default>
+                <label>Hold on</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>
