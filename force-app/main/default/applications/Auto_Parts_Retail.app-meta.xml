@@ -16,7 +16,7 @@
     <tabs>Car_Part__c</tabs>
     <tabs>Container__c</tabs>
     <tabs>standard-Lead</tabs>
-    <tabs>standard-FinanceTransaction</tabs>
+    <tabs>Finance_Transaction__c</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Auto_Parts_Retail_UtilityBar</utilityBar>
 </CustomApplication>
