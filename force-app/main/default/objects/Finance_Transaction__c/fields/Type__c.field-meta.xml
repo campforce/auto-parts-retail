@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
-    <fullName>Status__c</fullName>
+    <fullName>Type__c</fullName>
     <externalId>false</externalId>
-    <label>Status</label>
+    <label>Type</label>
     <required>false</required>
     <trackHistory>false</trackHistory>
     <trackTrending>false</trackTrending>
@@ -12,34 +12,24 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Auction</fullName>
+                <fullName>Storage</fullName>
                 <default>false</default>
-                <label>Auction</label>
+                <label>Storage</label>
             </value>
             <value>
-                <fullName>On The Road</fullName>
+                <fullName>Commission</fullName>
                 <default>false</default>
-                <label>On The Road</label>
+                <label>Commission</label>
             </value>
             <value>
-                <fullName>In The Yard</fullName>
+                <fullName>Transportation</fullName>
                 <default>false</default>
-                <label>In The Yard</label>
+                <label>Transportation</label>
             </value>
             <value>
-                <fullName>Dismantling</fullName>
+                <fullName>Sell</fullName>
                 <default>false</default>
-                <label>Dismantling</label>
-            </value>
-            <value>
-                <fullName>In Approval</fullName>
-                <default>false</default>
-                <label>In Approval</label>
-            </value>
-            <value>
-                <fullName>Done</fullName>
-                <default>false</default>
-                <label>Done</label>
+                <label>Sell</label>
             </value>
         </valueSetDefinition>
     </valueSet>
