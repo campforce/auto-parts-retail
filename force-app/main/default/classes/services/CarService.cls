@@ -1,6 +1,6 @@
 public with sharing class CarService {
 /**
- * Method to calculate auction commission according to price ranges.
+ * Method to calculate auction commissions according to price ranges.
  * 
  * @param newList newly inserted, updates properties
  * @author GulnazAtabaeva 
