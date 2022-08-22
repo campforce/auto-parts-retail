@@ -46,7 +46,7 @@ public with sharing class StorageChargeCheckBatch implements Database.Batchable<
         }//for loop
 
         //Update records
-        if (count > 0){
+        if (carsToUpdate.size() > 0){
             update carsToUpdate;
         }
     }
