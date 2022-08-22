@@ -1,5 +1,5 @@
 @isTest
-public with sharing class StorageChargeCheckTest 
+public class StorageChargeCheckTest 
 {
     @testSetup
     static void setup() 
