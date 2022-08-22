@@ -1,7 +1,4 @@
 public with sharing class FinanceTransactionService {
-
-Java
-public with sharing class FinanceTransactionService {
     
     public static final String SELL_TYPE = 'Sell';
     /**
@@ -29,5 +26,4 @@ public with sharing class FinanceTransactionService {
         }
         update mapCars.values();
     }
-}
 }
