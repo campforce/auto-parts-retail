@@ -1,0 +1,19 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card if:true={carQuantity} title="Overview of cars and related car parts" icon-name="standard:report">
+        <template if:true={carQuantity}>
+            <div class="slds-text-title_bold slds-text-align_center slds-text-color_success">
+                Total number of cars dismantled: {carQuantity}
+            </div>
+        </template>
+        <br/>
+        <template if:true={carPartList}>
+            <lightning-datatable align="center" hide-checkbox-column="true"
+                data={carPartList}
+                columns={columns}
+                key-field="Id" >
+            </lightning-datatable>
+        </template>
+        
+    </lightning-card>
+</template>

@@ -1,6 +1,7 @@
 public with sharing class FinanceTransactionService {
     
     public static final String SELL_TYPE = 'Sell';
+    
     /**
      * When payment for sold Car Parts comes, method adds amount to revenue amount on Car.
      *     
