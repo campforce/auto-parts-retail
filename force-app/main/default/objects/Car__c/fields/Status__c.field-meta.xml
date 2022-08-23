@@ -32,19 +32,14 @@
                 <label>Dismantling</label>
             </value>
             <value>
+                <fullName>In Approval</fullName>
+                <default>false</default>
+                <label>In Approval</label>
+            </value>
+            <value>
                 <fullName>Done</fullName>
                 <default>false</default>
                 <label>Done</label>
-            </value>
-            <value>
-                <fullName>In Progress</fullName>
-                <default>false</default>
-                <label>In Progress</label>
-            </value>
-            <value>
-                <fullName>Hold on</fullName>
-                <default>false</default>
-                <label>Hold on</label>
             </value>
         </valueSetDefinition>
     </valueSet>

@@ -255,16 +255,6 @@
         <relatedList>RelatedEmailStatusList</relatedList>
     </relatedLists>
     <relatedLists>
-        <fields>Name</fields>
-        <fields>Account</fields>
-        <fields>ReferenceEntity</fields>
-        <fields>EventAction</fields>
-        <fields>EventType</fields>
-        <fields>EffectiveDate</fields>
-        <fields>ImpactAmount</fields>
-        <relatedList>FinanceTransaction.Contact__c</relatedList>
-    </relatedLists>
-    <relatedLists>
         <fields>NAME</fields>
         <relatedList>Car__c.Driver__c</relatedList>
     </relatedLists>
