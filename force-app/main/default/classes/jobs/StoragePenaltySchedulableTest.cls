@@ -1,6 +1,7 @@
 @isTest
-public class StoragePenaltyTest {
-    @testSetup
+public class StoragePenaltySchedulableTest {
+    
+    @TestSetup
     static void setup (){
         List<Contact> conlist = new  List<Contact>();
         conlist.add(new Contact( LastName = 'Test  Contact 1', Email = 'bektur2130@gmail.com'));
@@ -14,15 +15,14 @@ public class StoragePenaltyTest {
         newcarlist.add(new car__c(name='test3', driver__c=conlist[2].ID, Storage_Cost__c=90,  Penalty_Cost__c = 60 ));
         insert newcarlist;
     }
+
     @isTest
     static void  testM(){
         Test.startTest();
         String cronExp = '0 0 9 * * ?';
-        String jobId = System.Schedule('Storage Penalty Name',cronExp, new StoragePenaltyClasess());
+        String jobId = System.Schedule('Storage Penalty Name',cronExp, new StoragePenaltySchedulable());
         Test.stopTest();
         List<car__c> carList = [SELECT Id, Name, Storage_Cost__c, Penalty_Cost__c, Total_Cost__c FROM Car__c];
-        system.assertEquals(120, carList[0].Total_Cost__c);
-        
+        System.assertEquals(120, carList[0].Total_Cost__c);
     }
-
 }

@@ -1,4 +1,4 @@
-public class StoragePenaltyClasess implements  Schedulable {
+public class StoragePenaltySchedulable implements  Schedulable {
     
     public void execute (System.SchedulableContext sc) {
         list<car__c>paylist=[SELECT Id, Name, Storage_Cost__c, Penalty_Cost__c, Total_Cost__c FROM Car__c];
