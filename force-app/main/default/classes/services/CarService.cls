@@ -1,4 +1,16 @@
 public with sharing class CarService {
+    
+    /**
+     * Method to calculate total cost.
+     *
+     * @param newList newly inserted, updates cars
+     * @author aysel
+     */
+    public static void carTotalCost(list <Car__c> newLists) {
+      for(Car__c cob:newLists){
+        cob.Total_Cost__c=cob.Penalty_Cost__c+cob.Storage_Cost__c+cob.Comission__c+cob.Car_Cost__c;
+      }
+    }    
 
     /**
      * Method to calculate auction commissions according to price ranges.
