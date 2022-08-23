@@ -14,7 +14,7 @@ public with sharing class CarService {
         Approval.ProcessSubmitRequest req= new Approval.ProcessSubmitRequest();
         req.setComments('Submittng request for approvasl automatically using Trigger');
         req.setObjectId(car.ID);
-        req.setNextApproverIds(new Id[] {car.Username.Id});
+        req.setNextApproverIds(new Id[] {UserInfo.getUserId()});
         //submit the approval request for the Car object 
         Approval.ProcessResult result =Approval.process(req);
         }
