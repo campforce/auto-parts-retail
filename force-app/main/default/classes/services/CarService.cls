@@ -21,4 +21,25 @@ public with sharing class CarService {
             }
         }
     }
+
+    // @author Oleh, 
+    public static void FeeSumEmailToCEO (List<Car__c> newList, List<Car__c> oldList);
+
+    Messaging.SingleEmailMessage[] messages = new List<Messaging.SingleEmailMessage>{};
+        for (Car__c car : newList) {
+            if()
+            if ((car.Storage_Cost__c + car.Penalty_Cost__c) <= 1000){
+
+            Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+            message.toAddresses = new String[]{'oleh.chkh@gmail.com'};
+            message.setSubject = new String []{'Too many fees here, boss'};
+            message.plainTextBody = 'Hey,' + car.name 'has too many fees. Penaly charges exceed $1k. Cut $400 from the superwisors wage!';
+            messages.add(message);
+        }
+    
+         Messaging.sendEmail(messages);
+    }
+        
+        
+        
 }
