@@ -1,3 +1,9 @@
+/**
+ * @author Dastan
+ * @date 2022-08-23
+ *
+ * @description Test Class for LwcReportForMastersController Class
+ */
 @isTest
 public with sharing class LwcReportForMastersControllerTest {
     @TestSetup

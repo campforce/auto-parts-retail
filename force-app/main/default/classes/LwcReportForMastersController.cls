@@ -1,8 +1,26 @@
+/**
+ * @author Dastan
+ * @date 2022-08-23
+ *
+ * @description Controller for lwcReportForMasters component
+ */
 public with sharing class LwcReportForMastersController {
+    /**
+     * @author Dastan 
+     * @date 2022-08-23
+     * 
+     * @description this method will count and return number of related cars for contact master record
+     */
     @AuraEnabled(cacheable=true)
     public static Decimal getCarQuantity(Id recordId){
         return [SELECT COUNT() FROM Car__c WHERE Master__c =: recordId AND Is_Dismantled__c = true AND CreatedDate = LAST_N_DAYS:30];
     }
+    /**
+     * @author Dastan 
+     * @date 2022-08-23
+     * 
+     * @description this method will return all car parts that are related to respective car
+     */
     @AuraEnabled(cacheable=true)
     public static List<DataTableWrapper> getRelatedCarParts(Id recordId){
         Set<Id> carIds = new Set<Id>();
@@ -27,6 +45,12 @@ public with sharing class LwcReportForMastersController {
         }
         return response;
     }
+    /**
+     * @author Dastan 
+     * @date 2022-08-23
+     * 
+     * @description wrapper...
+     */
     public class DataTableWrapper {
         @AuraEnabled
         public Id cpId {get;set;}

@@ -1,3 +1,9 @@
+/**
+ * @author Dastan
+ * @date 2022-08-23
+ *
+ * @description Component to show the report on Contact object with related car parts
+ */
 import { LightningElement, api, track, wire } from 'lwc';
 
 import getCarQuantity from '@salesforce/apex/LwcReportForMastersController.getCarQuantity';
