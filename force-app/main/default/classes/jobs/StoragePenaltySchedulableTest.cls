@@ -20,9 +20,10 @@ public class StoragePenaltySchedulableTest {
     static void  testM(){
         Test.startTest();
         String cronExp = '0 0 9 * * ?';
-        String jobId = System.Schedule('Storage Penalty Name',cronExp, new StoragePenaltySchedulable());
+        String jobId = System.Schedule('Storage Penalty Name', cronExp, new StoragePenaltySchedulable());        
         Test.stopTest();
+
         List<car__c> carList = [SELECT Id, Name, Storage_Cost__c, Penalty_Cost__c, Total_Cost__c FROM Car__c];
-        System.assertEquals(120, carList[0].Total_Cost__c);
+        System.assertEquals(120, carList[0].Storage_Cost__c + carList[0].Penalty_Cost__c);
     }
 }
