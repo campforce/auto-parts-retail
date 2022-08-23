@@ -14,13 +14,14 @@ public with sharing class CarTriggerHandler extends TriggerHandler {
 
     public override void beforeUpdate() {
         CarService.CommissionCalculator(newCarList);
+        CarService.carTotalCost(newCarList);
         CarService.ApprovalProcess(newCarList);
     }
   
     public override void beforeInsert() {
         CarService.CommissionCalculator(newCarList);
+        CarService.carTotalCost(newCarList);
         CarService.ApprovalProcess(newCarList);
     }
-  
-
 }
+

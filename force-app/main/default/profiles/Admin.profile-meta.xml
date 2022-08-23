@@ -30,6 +30,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CarPartsIntegration</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>CarService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -67,6 +71,30 @@
     </classAccesses>
     <classAccesses>
         <apexClass>LwcPdfGeneratorForCarPartsControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LwcReportForMastersController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LwcReportForMastersControllerTest</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>ScheduleStorageChargeCheckBatch</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SearchAndReplace</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>StorageChargeCheckBatch</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>StorageChargeCheckTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -131,6 +159,11 @@
     <fieldPermissions>
         <editable>true</editable>
         <field>Car__c.Dismantle__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Car__c.Dismantled_Date__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
