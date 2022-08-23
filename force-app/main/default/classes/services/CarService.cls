@@ -8,7 +8,20 @@ public with sharing class CarService {
      */
     public static void carTotalCost(list <Car__c> newLists) {
       for(Car__c cob:newLists){
-        cob.Total_Cost__c=cob.Penalty_Cost__c+cob.Storage_Cost__c+cob.Comission__c+cob.Car_Cost__c;
+        if(cob.Total_Cost__c != null) {        
+            if(cob.Penalty_Cost__c != null) {
+                cob.Total_Cost__c += cob.Penalty_Cost__c;
+            }
+            if(cob.Storage_Cost__c != null) {
+                cob.Total_Cost__c += cob.Storage_Cost__c;
+            }
+            if(cob.Comission__c != null) {
+                cob.Total_Cost__c += cob.Comission__c;
+            }
+            if(cob.Car_Cost__c != null) {
+                cob.Total_Cost__c += cob.Car_Cost__c;
+            }
+        }
       }
     }    
 
