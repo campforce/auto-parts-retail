@@ -12,6 +12,11 @@ public with sharing class CarPartTriggerHandler extends TriggerHandler {
         this.oldCarPartMap = (Map<Id, Car_Part__c>) Trigger.oldMap;
     }
 
-    public override void beforeUpdate() {        
+    public override void beforeUpdate() {   
+        CarPartService.handleSell(oldCarPartMap,  newCarPartMap); 
     }
+
+    public override void afterInsert() {   
+        CarPartService.handleSell(oldCarPartMap,  newCarPartMap); 
+    } 
 }
