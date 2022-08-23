@@ -1,36 +1,24 @@
 public with sharing class CarService {
    
    /**
-    * Approval process for the pulled auto parts
+    * Approval process for the parts to be pulled if the status of the Car object is 'in the yard'.
     * 
     * @param oldMap old car__c
     * @param newMap new car__c
-    * @param recordID the record to approve 
-    * @param approvalProcessName the approval process to use 
     * @author gulzatbaimyrzaeva
     */    
-    public static void ApprovalProcess (Id recordID, String ApprovalProcessName, Id userId) {
-        Approval.ProcessSubmitRequest processSubmitRequest=new Approval.ProcessSubmitRequest();
-        
-        processSubmitRequest.setObjectID(recordID);
-        processSubmitRequest.setCommnet('Submitted for approval by apex code');
-        processSubmitRequest.setProcessDefinitionNameOrId(approvalProcessName);
-        processSubmitRequest.setSubmitterId(userId);
-        processSubmitRequest.setSkipEntryCriteria(true);
+    public static void ApprovalProcess (list <Car__c> newCarList) {
+        for(Car__c car:newCarList)
+        if (car.Status__c=='In The Yard'){
 
-        Approval.ProcessResult result = Approval.process(processSubmitRequest);   
-        return result.isSuccess();
-    }
-    
-   /**
-    * @description       Starts a given approval process for the specified record,
-    * assuming the submitting user is the apex execution context user.
-    * @param recordId the record to approve 
-    * @param approvalProcessName the approval process to use 
-    */
-    public Boolean startApprovalProcess(Id recordID, String approvalProcessName) {
-      Id userID = UserInfo.getUserId();
-    }
+        Approval.ProcessSubmitRequest req= new Approval.ProcessSubmitRequest();
+        req.setComments('Submittng request for approvasl automatically using Trigger');
+        req.setObjectId(car.ID);
+        req.setNextApproverIds(new Id[] {car.Username.Id});
+        //submit the approval request for the Car object 
+        Approval.ProcessResult result =Approval.process(req);
+        }
+      }
 
     /**
      * Method to calculate auction commissions according to price ranges.
@@ -38,7 +26,7 @@ public with sharing class CarService {
      * @param newList newly inserted, updates properties
      * @author GulnazAtabaeva
      */
-    public static void commissionCalculator(List<Car__c> newList) {
+    public static void commissionCalculator(List <Car__c> newList) {
         for (Car__c car : newList) {
             if (car.Car_Cost__c <= 1000) { //commission up to 1000$
                 car.Comission__c = 170;
@@ -51,7 +39,6 @@ public with sharing class CarService {
             } else { //commission for price more than 10000$
                 car.Comission__c = 400;
             }
-        }
-    }
+        }    
+    }  
 }
-

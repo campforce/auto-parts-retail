@@ -1,20 +1,29 @@
 @IsTest(SeeAllData=false)
 private class CarServiceTest {
-    static String approvalProcessName = [Select name FROM processdefinition LIMIT 1][0].Name;
 
     @IsTest
-    static void testApprovalProcessPositive(){
-        User notAdmin =TestFactory.createTestUser(true, 'Standart User');
-        Car__c car =(Car__c)TestFactory.createSobject(new Car__c (name='Test car',Status__c='not In The Yard'), true);
-        
-        ApprovalProcessRecipes apr =new ApprovalprocessRecipes ();
-        Boolean result = apr.startApprovalProcess(car.id, approvalProcessName);
+    static void ApprovalProcessTest() {
+        //given 
+        Contact con=new Contact (LastName='Stan');
+        insert con;
 
-        System.assert(result, 'expected to receive true');
+        Car__c car = new Car__c (name='Tesla', Status__c= 'On the Road', Driver__c =con.Id);
+        insert car;
+        
+		car.Status__c='In the Yard';
+        
+        //when
+        test.startTest();
+        update car;
+        test.stopTest();
+
+        Car__c carTest = [Select Id, name, Status__c, Driver__c From Car__c Where Id=: car.Id];
+        System.assertEquals(carTest.Status__c, car.Status__c);
+        //System.assert(result, 'expected to receive true');
+
     }
 
-
-    @IsTest
+    @isTest
     static void CommissionCalculatorTest() {
         //given 
         Contact cont=new Contact(LastName='John');
