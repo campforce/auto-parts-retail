@@ -12,6 +12,10 @@ public class AccountTriggerHandler extends TriggerHandler {
         this.oldAccountMap = (Map<Id, Account>) Trigger.oldMap;
     }
 
+    public override void afterInsert() {
+        System.enqueueJob(new GeolocationQueueable(newAccountList));
+    }
+
     public override void beforeUpdate() {
         AccountService.demonstrativeMethod(oldAccountMap, newAccountMap);
     }
