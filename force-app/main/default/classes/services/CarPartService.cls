@@ -19,13 +19,10 @@ public with sharing class CarPartService {
 
     public static void loadToContainer(List<Car_Part__c> carParts){
         List<Container__c> containers = new List<Container__c>();
-
         Set<id> containerIds = new Set<id>();
-
         for (Car_Part__c cp : carParts){
             containerIds.add(cp.Container__c);
         }
-
         Map<id, Container__c> containersMap = new Map<id, Container__c>([Select Capacity__c From Container__c Where id in :containerIds]);
         
         for (Car_Part__c cp : carParts){
