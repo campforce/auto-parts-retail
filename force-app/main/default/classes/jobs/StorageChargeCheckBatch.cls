@@ -18,7 +18,7 @@ public with sharing class StorageChargeCheckBatch implements Database.Batchable<
             
             //Calculate diffence between purchased date and today's date
             Integer numberDaysDue = purchasedDate.daysBetween(today);
-            Integer storageCharge = 0;
+            Decimal storageCharge = 0;
 
             //Calculate storage charge
             if (numberDaysDue == 4){
