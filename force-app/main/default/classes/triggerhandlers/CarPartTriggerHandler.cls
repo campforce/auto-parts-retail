@@ -14,9 +14,14 @@ public with sharing class CarPartTriggerHandler extends TriggerHandler {
 
     public override void beforeUpdate() {   
         CarPartService.handleSell(oldCarPartMap,  newCarPartMap); 
+        CarPartService.loadToContainer(newCarPartList, oldCarPartList);
     }
 
     public override void afterInsert() {   
         CarPartService.handleSell(oldCarPartMap,  newCarPartMap); 
     } 
+
+    public override void beforeInsert() {
+        CarPartService.loadToContainer(newCarPartList);
+    }
 }
