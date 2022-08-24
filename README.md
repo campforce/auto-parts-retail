@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/f5fac7b9bd43466da67c25544cd98e8d)](https://app.codacy.com/gh/campforce/auto-parts-retail?utm_source=github.com&utm_medium=referral&utm_content=campforce/auto-parts-retail&utm_campaign=Badge_Grade_Settings)
 [![build](https://github.com/campforce/auto-parts-retail/actions/workflows/build.yml/badge.svg)](https://github.com/campforce/auto-parts-retail/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/campforce/auto-parts-retail/branch/main/graph/badge.svg?token=PGE9F3Z0NB)](https://codecov.io/gh/campforce/auto-parts-retail)
 
