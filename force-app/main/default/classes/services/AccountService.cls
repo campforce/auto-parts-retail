@@ -8,6 +8,6 @@ public with sharing class AccountService {
      * @author belekomurzakov
      */
     public static void demonstrativeMethod(Map<Id, Account> oldMap, Map<Id, Account> newMap) {
-        // your logic is here
+        // your logic is here.
     }
 }
