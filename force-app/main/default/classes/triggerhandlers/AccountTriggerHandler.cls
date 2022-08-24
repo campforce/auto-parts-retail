@@ -17,9 +17,9 @@ public class AccountTriggerHandler extends TriggerHandler {
     }
     
     public override void afterInsert() {
-            System.enqueueJob(new GeolocationQueueable(newAccountList));
+        System.enqueueJob(new GeolocationQueueable(newAccountList));
     }
     public override void afterupdate() { 
-                System.enqueueJob(new GeolocationQueueable(newAccountList));
+        System.enqueueJob(new GeolocationQueueable(newAccountList));
     }
 }
