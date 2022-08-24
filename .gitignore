@@ -392,3 +392,5 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+force-app/main/default/classes/jobs/StorageChargeCheckBatch.cls
+force-app/main/default/classes/services/StorageChargeCheckTest.cls

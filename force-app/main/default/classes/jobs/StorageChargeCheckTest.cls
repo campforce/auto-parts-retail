@@ -19,7 +19,7 @@ public class StorageChargeCheckTest
 
     @isTest static void test()
     {
-        Database.executeBatch(new StorageChargeCheck());
+        Database.executeBatch(new StorageChargeCheckBatch());
 
         List<Car__c> allCars = [Select id, Storage_Cost__c From Car__c];
 
