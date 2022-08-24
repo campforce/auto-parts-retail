@@ -22,6 +22,7 @@ jobs:
       - name: Run tests
         run: node_modules/sfdx-cli/bin/run force:apex:test:run --targetusername test-scratch --codecoverage --resultformat human --outputdir ./tests/apex      
       - name: Upload code coverage
+        if: always()
         uses: codecov/codecov-action@v3
         with:
           flags: Apex                  
