@@ -10,16 +10,17 @@ public with sharing class CarService {
     public static void ApprovalProcess (list <Car__c> newCarList) {
         for(Car__c car:newCarList)
         if (car.Status__c=='In The Yard'){
-
-        Approval.ProcessSubmitRequest req= new Approval.ProcessSubmitRequest();
-        req.setComments('Submittng request for approvasl automatically using Trigger');
-        req.setObjectId(car.ID);
-        req.setNextApproverIds(new Id[] {UserInfo.getUserId()});
-        //submit the approval request for the Car object 
-        Approval.ProcessResult result =Approval.process(req);
-        }
-      }
     
+        Approval.ProcessSubmitRequest req= new Approval.ProcessSubmitRequest();
+        req.setComments('Approving request for approvals  using Trigger');
+        req.setObjectId(car.Id);
+        req.setNextApproverIds(new Id[] {UserInfo.getUserId()});
+         //submit the approval request for the  Car object 
+        Approval.ProcessResult result =Approval.Process(req);
+        }
+  }
+
+
     /**
      * Method to calculate total cost.
      *
