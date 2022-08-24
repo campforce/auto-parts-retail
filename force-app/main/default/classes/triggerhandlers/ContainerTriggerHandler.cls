@@ -13,5 +13,8 @@ public with sharing class ContainerTriggerHandler extends TriggerHandler {
     }
 
     public override void beforeUpdate() {
+        ContainerService.minimumRequirements(newContainerMap);
+        ContainerService.minimumRequirements(oldContainerMap);
+
     }
 }
