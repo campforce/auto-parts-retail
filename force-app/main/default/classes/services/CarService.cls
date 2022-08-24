@@ -20,7 +20,5 @@ public with sharing class CarService {
                 car.Comission__c = 400;
             }
         }
-    }
-
-    
+    }   
 }
