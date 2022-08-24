@@ -6,11 +6,9 @@ private class CarServiceTest {
         //given 
         Contact con=new Contact (LastName='Stan');
         insert con;
-
         Car__c car = new Car__c (name='Tesla', Status__c= 'On the Road', Driver__c =con.Id);
         insert car;
-        
-		car.Status__c='In the Yard';
+		car.Status__c = 'In The Yard';
         
         //when
         test.startTest();
@@ -19,8 +17,6 @@ private class CarServiceTest {
 
         Car__c carTest = [Select Id, name, Status__c, Driver__c From Car__c Where Id=: car.Id];
         System.assertEquals(carTest.Status__c, car.Status__c);
-        //System.assert(result, 'expected to receive true');
-
     }
 
     @isTest
