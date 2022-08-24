@@ -14,9 +14,7 @@ jobs:
       - name: Set Default Username
         run: node_modules/sfdx-cli/bin/run config:set defaultusername=devhub
       - name: Create scratch org
-        run: node_modules/sfdx-cli/bin/run force:org:create -f config/project-scratch-def.json --setalias test-scratch
-      - name: Create QA user
-        run: node_modules/sfdx-cli/bin/run force:user:create --setalias qa-user username=adam.scratch@sfdx.org generatePassword=false
+        run: node_modules/sfdx-cli/bin/run force:org:create -f config/project-scratch-def.json --setalias test-scratch   
       - name: Push source
         run: node_modules/sfdx-cli/bin/run force:source:push --targetusername test-scratch      
       - name: Create mdt value
