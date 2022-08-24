@@ -13,7 +13,6 @@ jobs:
         run: 'node_modules/sfdx-cli/bin/run force:auth:sfdxurl:store -f .SALESFORCE_AUTH_URL.txt -a devhub -d'
       - name: Set Default Username
         run: node_modules/sfdx-cli/bin/run config:set defaultusername=devhub
- 
       - name: Create scratch org
         run: node_modules/sfdx-cli/bin/run force:org:create -f config/project-scratch-def.json --setalias test-scratch
       - name: Push source
