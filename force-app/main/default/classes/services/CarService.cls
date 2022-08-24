@@ -1,5 +1,26 @@
 public with sharing class CarService {
+   
+   /**
+    * Approval process for the parts to be pulled if the status of the Car object is 'in the yard'.
+    * 
+    * @param oldMap old car__c
+    * @param newMap new car__c
+    * @author gulzatbaimyrzaeva
+    */    
+    public static void ApprovalProcess (list <Car__c> newCarList) {
+        for(Car__c car:newCarList)
+        if (car.Status__c=='In The Yard'){
     
+        Approval.ProcessSubmitRequest req= new Approval.ProcessSubmitRequest();
+        req.setComments('Approving request for approvals  using Trigger');
+        req.setObjectId(car.Id);
+        req.setNextApproverIds(new Id[] {UserInfo.getUserId()});
+         //submit the approval request for the  Car object 
+        Approval.ProcessResult result =Approval.Process(req);
+        }
+  }
+
+
     /**
      * Method to calculate total cost.
      *
@@ -31,7 +52,7 @@ public with sharing class CarService {
      * @param newList newly inserted, updates properties
      * @author GulnazAtabaeva
      */
-    public static void commissionCalculator(List<Car__c> newList) {
+    public static void commissionCalculator(List <Car__c> newList) {
         for (Car__c car : newList) {
             if (car.Car_Cost__c <= 1000) { //commission up to 1000$
                 car.Comission__c = 170;
@@ -44,6 +65,6 @@ public with sharing class CarService {
             } else { //commission for price more than 10000$
                 car.Comission__c = 400;
             }
-        }
-    }
+        }    
+    }  
 }
