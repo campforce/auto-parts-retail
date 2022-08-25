@@ -1,11 +1,25 @@
-/**
- * Created by omurzakov on 20.08.2022.
- */
 @IsTest(SeeAllData=false)
-
 private class CarServiceTest {
 
     @IsTest
+    static void ApprovalProcessTest() {
+        //given 
+        Contact con=new Contact (LastName='Stan');
+        insert con;
+        Car__c car = new Car__c (name='Tesla', Status__c= 'On the Road', Driver__c =con.Id);
+        insert car;
+		car.Status__c = 'In The Yard';
+        
+        //when
+        test.startTest();
+        update car;
+        test.stopTest();
+
+        Car__c carTest = [Select Id, name, Status__c, Driver__c From Car__c Where Id=: car.Id];
+        System.assertEquals(carTest.Status__c, car.Status__c);
+    }
+
+    @isTest
     static void CommissionCalculatorTest() {
         //given 
         Contact cont=new Contact(LastName='John');
@@ -39,6 +53,5 @@ private class CarServiceTest {
         System.assertEquals(testPriceLess5000.Comission__c, 300);
         System.assertEquals(testPriceLess10000.Comission__c, 350);
         System.assertEquals(testPriceMore10000.Comission__c, 400);    
-
     }
 }
