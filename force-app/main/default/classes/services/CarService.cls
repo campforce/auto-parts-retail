@@ -70,20 +70,28 @@ public with sharing class CarService {
 
     /**
      *
-     * @param newList new
-     * @param oldList old 
+     * @param newMap new
+     * @param oldMap old 
      * @author Oleh
      */
-    public static void feeSumEmailToCEO(List<Car__c> newList, List<Car__c> oldList) {
-      Messaging.SingleEmailMessage[] messages = new List<Messaging.SingleEmailMessage>{};
-        for (Car__c car : newList) {
-            if ((car.Storage_Cost__c + car.Penalty_Cost__c) <= 1000){
-              Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
-              message.toAddresses = new String[]{'oleh.chkh@gmail.com'};
-              message.setSubject = new String []{'Too many fees here, boss'};
-              message.plainTextBody = 'Hey,' + car.name 'has too many fees. Penaly charges exceed $1k. Cut $400 from the superwisors wage!';
-              messages.add(message);
+    public static void FeeSumEmailToCEO (Map<ID, Car__c> newCarMap, Map<ID, Car__c> oldCarMap){
+
+        Messaging.SingleEmailMessage[] messages = new List<Messaging.SingleEmailMessage>{};
+            for (Car__c car : newCarMap.values()){
+                Decimal oldFee = oldCarMap.get(car.id).Storage_Cost__c + oldCarMap.get(car.id).Penalty_Cost__c;
+                Decimal newFee = (car.Storage_Cost__c + car.Penalty_Cost__c);
+                if(newFee == oldFee){
+                    continue;
+                }
+                if (newFee <= 1000){
+                Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+                message.toAddresses = new String[]{'oleh.chkh@gmail.com'};
+                message.setSubject ('Too many fees here, boss');
+                message.plainTextBody = 'Hey,' + car.name + 'has too many fees. Penalty charges exceed $1k. Cut $400 from the superwisors wage!';
+                messages.add(message);
+            
+            }
+             Messaging.sendEmail(messages);
         }
-      Messaging.sendEmail(messages);
-    }        
-}
+        }
+    }
