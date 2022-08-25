@@ -5,7 +5,6 @@
     */
 Public with sharing class GeolocationQueueable implements Queueable, Database.AllowsCallouts {
     //googlemaps private API key, get your own
-    private final static String key = 'AIzaSyBYBP5ajTnpCgSGqf399Pd7wXsQR26V45c';
     Map<Id, String> addressByAccountIds;
     public GeolocationQueueable(List<Account> accountList) {
         this.addressByAccountIds = new Map<Id, String>();
@@ -31,7 +30,7 @@ Public with sharing class GeolocationQueueable implements Queueable, Database.Al
     public static GeolocationStructure getGeolocation(String address) {
         Http httpProtocol = new Http();
         HttpRequest request = new HttpRequest();
-        String endpoint = 'https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key='+key;
+        String endpoint = 'https://maps.googleapis.com/maps/api/geocode/json?address='+address+'&key='+Constant.GOOGLE_API_KEY;
         request.setEndPoint(endpoint);
         request.setMethod('GET');    
         HttpResponse response = httpProtocol.send(request);
