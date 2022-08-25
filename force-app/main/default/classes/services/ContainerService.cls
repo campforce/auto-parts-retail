@@ -25,9 +25,9 @@ public with sharing class ContainerService {
         }
 
         for(Id con : containerByCarParts.keySet()) {
-          Integer countOfEngine;
-          Integer countOfHalfCar;
-          Integer countOfHood;
+          Integer countOfEngine=0;
+          Integer countOfHalfCar=0;
+          Integer countOfHood=0;
 
           for(Car_Part__c cp : containerByCarParts.get(con)) {
               if(cp.Type__c=='Engine') {
