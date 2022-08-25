@@ -13,6 +13,7 @@ public with sharing class ContainerTriggerHandler extends TriggerHandler {
     }
 
     public override void beforeUpdate() {
+        ContainerService.minimumRequirements(newContainerMap, oldContainerMap);
         ContainerService.checkPayments(new Set<Container__c>(newContainerList));
     }
 }
