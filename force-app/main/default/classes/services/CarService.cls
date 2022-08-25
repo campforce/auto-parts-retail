@@ -18,8 +18,7 @@ public with sharing class CarService {
                 Approval.ProcessResult result = Approval.Process(req);
             }
         }
-  }
-
+    }
 
     /**
      * Method to calculate total cost.
