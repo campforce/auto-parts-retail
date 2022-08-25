@@ -65,6 +65,25 @@ public with sharing class CarService {
             } else { //commission for price more than 10000$
                 car.Comission__c = 400;
             }
-        }    
-    }  
+        }
+    }
+
+    /**
+     *
+     * @param newList new
+     * @param oldList old 
+     * @author Oleh
+     */
+    public static void feeSumEmailToCEO(List<Car__c> newList, List<Car__c> oldList) {
+      Messaging.SingleEmailMessage[] messages = new List<Messaging.SingleEmailMessage>{};
+        for (Car__c car : newList) {
+            if ((car.Storage_Cost__c + car.Penalty_Cost__c) <= 1000){
+              Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+              message.toAddresses = new String[]{'oleh.chkh@gmail.com'};
+              message.setSubject = new String []{'Too many fees here, boss'};
+              message.plainTextBody = 'Hey,' + car.name 'has too many fees. Penaly charges exceed $1k. Cut $400 from the superwisors wage!';
+              messages.add(message);
+        }
+      Messaging.sendEmail(messages);
+    }        
 }
