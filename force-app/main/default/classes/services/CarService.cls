@@ -20,7 +20,6 @@ public with sharing class CarService {
         }
   }
 
-
     /**
      * Method to calculate total cost.
      *
@@ -67,14 +66,38 @@ public with sharing class CarService {
             }
         }    
     }  
-     /**
-     * Method to calculate distance between car auction location and company yard 
-     * @param newList newly inserted, updated cars
-     * @author MartinCapek
+    
+    /**
+     *
+     * @param newMap new
+     * @param oldMap old 
+     * @author Oleh
      */
+    public static void feeSumEmailToCEO(Map<Id, Car__c> newMap, Map<Id, Car__c> oldMap) {
+        Messaging.SingleEmailMessage[] messages = new List<Messaging.SingleEmailMessage>{};
+            for (Car__c car : newMap.values()) {
+                if(car.Storage_Cost__c == oldMap.get(car.Id).Storage_Cost__c && car.Penalty_Cost__c == oldMap.get(car.Id).Penalty_Cost__c
+                    && car.Storage_Cost__c == null && car.Penalty_Cost__c == null) {
+                    continue;
+                }
+                
+                if ((car.Storage_Cost__c + car.Penalty_Cost__c) <= 1000) {
+                    Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
+                    message.toAddresses = new String[]{'oleh.chkh@gmail.com'};
+                    message.setSubject('Too many fees here, boss');
+                    message.plainTextBody = 'Hey,' + car.name + 'has too many fees. Penaly charges exceed $1k. Cut $400 from the superwisors wage!';
+                    messages.add(message);
+                }
+        }
+        Messaging.sendEmail(messages);                 
+    }
     
-    
-    public static void DistanceCalc(List<Car__c> newList) {
+   /**
+    * Method to calculate distance between car auction location and company yard 
+    * @param newList newly inserted, updated cars
+    * @author MartinCapek
+    */
+    public static void distanceCalc(List<Car__c> newList) {
         //Static yard location
         final  Location yard = Location.newInstance(40.453151587554444, -76.43538154417556);
 
