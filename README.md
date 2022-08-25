@@ -40,6 +40,10 @@ Salesforce application of auto parts retailer. 🚘🛠⚙️
     ```
     sfdx force:source:push
     ```
+1. Import Sample Data
+    ```
+    sfdx force:data:tree:import --plan data/data-plan.json
+    ```    
 1. Open the scratch org:
 
     ```
