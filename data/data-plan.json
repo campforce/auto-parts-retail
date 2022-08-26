@@ -1,0 +1,38 @@
+[
+    {
+        "sobject": "Account",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": ["Account.json"]
+    },
+    {
+        "sobject": "Contact",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": ["Contact.json"]
+    },
+    {
+        "sobject": "Car__c",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": ["Car.json"]
+    },
+    {
+        "sobject": "Car_Part__c",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": ["CarPart.json"]
+    },
+    {
+        "sobject": "Container__c",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": ["Container.json"]
+    },
+    {
+        "sobject": "Finance_Transaction__c",
+        "saveRefs": true,
+        "resolveRefs": true,
+        "files": ["FinanceTransaction.json"]
+    }
+]

@@ -1,5 +1,7 @@
 [![build](https://github.com/campforce/auto-parts-retail/actions/workflows/build.yml/badge.svg)](https://github.com/campforce/auto-parts-retail/actions/workflows/build.yml)
+[![code-coverage](https://github.com/campforce/auto-parts-retail/actions/workflows/code-coverage.yml/badge.svg)](https://github.com/campforce/auto-parts-retail/actions/workflows/code-coverage.yml)
 [![codecov](https://codecov.io/gh/campforce/auto-parts-retail/branch/main/graph/badge.svg?token=PGE9F3Z0NB)](https://codecov.io/gh/campforce/auto-parts-retail)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/6c7b346f469b4d7295173d058266558f)](https://www.codacy.com/gh/campforce/auto-parts-retail/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=campforce/auto-parts-retail&amp;utm_campaign=Badge_Grade)
 
 # Auto Parts Retail App
 Salesforce application of auto parts retailer. 🚘🛠⚙️
@@ -38,6 +40,10 @@ Salesforce application of auto parts retailer. 🚘🛠⚙️
     ```
     sfdx force:source:push
     ```
+1. Import Sample Data
+    ```
+    sfdx force:data:tree:import --plan data/data-plan.json
+    ```    
 1. Open the scratch org:
 
     ```
