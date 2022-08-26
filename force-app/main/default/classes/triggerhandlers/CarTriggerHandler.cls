@@ -18,12 +18,14 @@ public with sharing class CarTriggerHandler extends TriggerHandler {
         CarService.carTotalCost(newCarList);
         CarService.DistanceCalc(newCarList);
         CarService.valdiateCurrencyField(newCarMap, oldCarMap);
+        CarService.handleDrivable(oldCarMap,newCarList);
     }
   
     public override void beforeInsert() {
         CarService.commissionCalculator(newCarList);
         CarService.carTotalCost(newCarList);
         CarService.DistanceCalc(newCarList);
+        CarService.handleDrivable(null, newCarList);
 
     }
     
