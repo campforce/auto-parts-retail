@@ -51,4 +51,26 @@ private class CarServiceTest {
             System.assert(e.getMessage().contains('currency'));
         }
     }
+    @isTest
+    static void handleDrivableTest() {
+        //given 
+       	Contact cont=new Contact(LastName='John');
+        insert cont;
+
+        Car__c drivable= new Car__c (Name='Mercedes', Driver__c=cont.Id, Is_Drivable__c=true);
+        Car__c notDrivable= new Car__c (Name='Peugeot', Driver__c=cont.Id, Is_Drivable__c=false);
+        
+        //when
+        Test.startTest();
+        insert drivable;
+        insert notDrivable;
+        Test.stopTest();
+        
+        //then
+        Car__c testDrivable= [SELECT Id, Name, Driver__c, Transportation__c FROM Car__c WHERE Id=:drivable.Id];
+        Car__c testNotDrivable= [SELECT Id, Name, Driver__c, Transportation__c FROM Car__c WHERE Id=:notDrivable.Id];
+              
+        System.assertEquals(0, testDrivable.Transportation__c);
+        System.assertEquals(100, testNotDrivable.Transportation__c);
+    }
 }
