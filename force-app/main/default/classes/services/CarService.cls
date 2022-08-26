@@ -7,9 +7,9 @@ public with sharing class CarService {
     * @param newMap new car__c
     * @author gulzatbaimyrzaeva
     */    
-    public static void approvalProcess(List <Car__c> newCarList) {
+    public static void approvalProcess(List <Car__c> newCarList,Map<Id,Car__c> oldMap) { 
         for(Car__c car:newCarList) {
-            if (car.Status__c=='In The Yard'){
+            if (car.Status__c=='In The Yard' && oldMap.get(car.Id).Status__c!='In the Yard'){
                 Approval.ProcessSubmitRequest req= new Approval.ProcessSubmitRequest();
                 req.setComments('Approving request for approvals  using Trigger');
                 req.setObjectId(car.Id);

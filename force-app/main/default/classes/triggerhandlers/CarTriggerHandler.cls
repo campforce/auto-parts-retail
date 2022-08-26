@@ -27,10 +27,10 @@ public with sharing class CarTriggerHandler extends TriggerHandler {
     }
     
     public override void afterInsert(){
-        CarService.approvalProcess(newCarList);
+        CarService.approvalProcess(newCarList,null);
     } 
 
     public override void afterUpdate(){
-        CarService.approvalProcess(newCarList);
+        CarService.approvalProcess(newCarList,oldCarMap);
     }
 }
