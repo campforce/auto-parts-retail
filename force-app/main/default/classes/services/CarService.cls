@@ -110,6 +110,7 @@ public with sharing class CarService {
         for(Account relAccount : [SELECT Id, Geolocation__c FROM Account WHERE Id In : CarsByAccountIds.keySet()])
         CarsByAccountIds.get(relAccount.Id).Distance__c = Location.getDistance (relAccount.geolocation__C,yard,'mi');
     }
+
     
     public static void valdiateCurrencyField(Map<Id, Car__c> newMap, Map<Id, Car__c> oldMap){
         for(Car__c c : newMap.values()){
@@ -117,5 +118,29 @@ public with sharing class CarService {
                 c.Currency__c.addError('Please select currency');
             }
         }
+    }
+    
+    /**
+     * Method to add extra $100 for transportation if the is not drivable.
+     *
+     * @param oldMap car__c
+     * @param newList car__c
+     * @author RomanDanylchenko
+     */
+    public static void handleDrivable(Map<Id, Car__c> oldMap, List<Car__c> newList) {
+        for(Car__c car : newList) {
+            Decimal amount = car.Transportation__c;
+            if(car.Transportation__c == null) {
+                amount = 0;
+            }
+            if(oldMap == null || oldMap.get(car.Id).Is_Drivable__c != car.Is_Drivable__c) { 
+                if (!car.Is_Drivable__c) {
+                    amount += 100;
+                } else if (car.Is_Drivable__c && oldMap != null) {
+                    amount -= 100;
+                }
+            }
+            car.Transportation__c = amount;
+        } 
     }
 }
