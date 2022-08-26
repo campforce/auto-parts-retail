@@ -28,7 +28,6 @@ public with sharing class CarTriggerHandler extends TriggerHandler {
         CarService.DistanceCalc(newCarList);
         CarService.handleDrivable(null, newCarList);
         CarService.calculateTransportation(null, newCarList);
-
     }
     
     public override void afterInsert(){
@@ -38,6 +37,5 @@ public with sharing class CarTriggerHandler extends TriggerHandler {
     public override void afterUpdate(){
         CarService.approvalProcess(newCarList);
         System.enqueueJob(new CurrencyQueueable(newCarList, oldCarMap));
-
     }
 }
