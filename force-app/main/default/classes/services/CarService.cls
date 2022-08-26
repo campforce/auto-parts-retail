@@ -139,4 +139,59 @@ public with sharing class CarService {
             car.Transportation__c = amount;
         } 
     }
+
+    /**    method to calculate transportation cost
+     *
+     * @param oldMap car__c
+     * @param newList car__c
+     * @author AssemTleuova
+     */
+    public static void calculateTransportation(Map<Id, Car__c> oldMap, List<Car__c> newList) {
+        for(Car__c car : newList) {
+            Decimal fee = car.Transportation__c;
+            if(fee == null) {
+                fee = 0;
+            }
+            if(oldMap != null) {
+                if(oldMap.get(car.Id).Weight__c != car.Weight__c) {
+                    if(oldMap.get(car.Id).Weight__c > 0 && oldMap.get(car.Id).Weight__c != null) {
+                        fee -= handleWeight(oldMap.get(car.Id).Weight__c);
+                    }
+                    if(car.Weight__c > 0 && car.Weight__c != null) {
+                        fee += handleWeight(car.Weight__c);  
+                    }                      
+                }
+                if(oldMap.get(car.Id).Distance__c != car.Distance__c) {
+                    if(oldMap.get(car.Id).Distance__c > 0 && oldMap.get(car.Id).Distance__c != null) {
+                        fee -= handleDistance(oldMap.get(car.Id).Distance__c);
+                    }
+                    if(car.Distance__c > 0 && car.Distance__c != null) {
+                        fee += handleDistance(car.Distance__c);
+                    }
+                }
+            } else {
+                if(car.Weight__c != null) {
+                    fee += handleWeight(car.Weight__c);
+                }
+                if (car.Distance__c  != null) {
+                    fee += handleDistance(car.Distance__c);
+                }
+            }
+            car.Transportation__c = fee;
+        }      
+    }
+    
+    private static Decimal handleWeight(Decimal weight) {
+        if (weight > 3000 && Math.round((weight - 3000) / 1000) > 0) {
+            return (Math.round((weight - 3000) / 1000) * 25) + 75;
+        }
+        return 75;
+    }
+    
+    private static Decimal handleDistance(Decimal distance) {
+        if (distance > 80 && Math.round((distance - 80) / 45) > 0) {
+            return (Math.round((distance - 80) / 45) * 25) + 75;
+        }
+        return 75;
+    }
 }
