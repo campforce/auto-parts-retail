@@ -1,6 +1,7 @@
 @isTest
-public class CheckPenaltyTest {
-    @testSetup  
+private class CheckPaymentBatchTest {
+    
+    @TestSetup  
     static void dataSetup(){
         Contact newContact = new Contact(LastName='ContactTest1');
         Contact newContact2 = new Contact(LastName='ContactTest2');
@@ -13,12 +14,13 @@ public class CheckPenaltyTest {
         
         insert carList;
     }
-    @isTest
+    
+    @IsTest
     static void testM() {    
         Test.startTest();
-        CheckIsPaid n = new CheckIsPaid(); 
+        CheckPaymentBatch n = new CheckPaymentBatch(); 
         String cronExp = '0 0 9 * * ?';
-        String jobId = System.Schedule('PenaltyAdd Schedule 3', cronExp, n);   
+        String jobId = System.schedule('PenaltyAdd Schedule 3', cronExp, n);   
         
         Database.executeBatch(n, 10);     
         Test.stopTest();
@@ -28,8 +30,7 @@ public class CheckPenaltyTest {
         Car__c list2 = [SELECT Id, Name, Driver__c, Is_Paid__c, Purchase_Date__c, Penalty_Cost__c 
                         FROM Car__c where Name= 'TEST2'];  
         
-        system.assertEquals(300,list1.Penalty_Cost__c, 'Failed');
-        system.assertEquals(50,list2.Penalty_Cost__c, 'Failed');    
-        
+        System.assertEquals(300,list1.Penalty_Cost__c, 'Failed');
+        System.assertEquals(50,list2.Penalty_Cost__c, 'Failed');            
     }     
 }
