@@ -107,8 +107,9 @@ public with sharing class CarService {
         for (Car__c car: newList) {
             CarsByAccountIds.put (car.Account__c, car);
         }
-        for(Account relAccount : [SELECT Id, Geolocation__c FROM Account WHERE Id In : CarsByAccountIds.keySet()])
-        CarsByAccountIds.get(relAccount.Id).Distance__c = Location.getDistance (relAccount.geolocation__C,yard,'mi');
+        for(Account relAccount : [SELECT Id, Geolocation__c FROM Account WHERE Id In : CarsByAccountIds.keySet()]) {
+            CarsByAccountIds.get(relAccount.Id).Distance__c = Location.getDistance(relAccount.geolocation__C,yard,'mi');
+        }
     }
 
     

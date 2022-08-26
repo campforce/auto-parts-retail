@@ -38,7 +38,7 @@ public with sharing class CurrencyQueueableTest {
         }
         update carList;
 
-        Test.setMock(HttpCalloutMock.class, new CurrencyConverterIntegrationMock()); 
+        Test.setMock(HttpCalloutMock.class, new CurrencyConverterIntegrationTest.CurrencyConverterIntegrationMock()); 
 
         // CurrencyQueueable updateJob = new CurrencyQueueable(carList, carsToUpdate);
         // System.engueueJob(updateJob);
