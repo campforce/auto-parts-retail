@@ -110,4 +110,12 @@ public with sharing class CarService {
         for(Account relAccount : [SELECT Id, Geolocation__c FROM Account WHERE Id In : CarsByAccountIds.keySet()])
         CarsByAccountIds.get(relAccount.Id).Distance__c = Location.getDistance (relAccount.geolocation__C,yard,'mi');
     }
+    
+    public static void valdiateCurrencyField(Map<Id, Car__c> newMap, Map<Id, Car__c> oldMap){
+        for(Car__c c : newMap.values()){
+            if((oldMap.get(c.Id).Status__c != 'Done' && c.Status__c == 'Done') && c.Currency__c == null){
+                c.Currency__c.addError('Please select currency');
+            }
+        }
+    }
 }
