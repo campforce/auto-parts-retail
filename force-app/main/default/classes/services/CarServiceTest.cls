@@ -54,4 +54,19 @@ private class CarServiceTest {
         System.assertEquals(testPriceLess10000.Comission__c, 350);
         System.assertEquals(testPriceMore10000.Comission__c, 400);    
     }
+
+    @IsTest
+    static void validateCurrencyFieldTest() {
+        //given 
+        Contact con = new Contact (LastName='Stan');
+        insert con;
+        Car__c car = new Car__c (name='Tesla', Driver__c =con.Id);
+        insert car;
+		car.Status__c = 'Done';
+        try{
+            update car;
+        } catch (Exception e){
+            System.assert(e.getMessage().contains('currency'));
+        }
+    }
 }

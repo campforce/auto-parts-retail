@@ -17,6 +17,7 @@ public with sharing class CarTriggerHandler extends TriggerHandler {
         CarService.feeSumEmailToCEO(newCarMap, oldCarMap);
         CarService.carTotalCost(newCarList);
         CarService.DistanceCalc(newCarList);
+        CarService.valdiateCurrencyField(newCarMap, oldCarMap);
         CarService.handleDrivable(oldCarMap,newCarList);
     }
   
@@ -34,5 +35,7 @@ public with sharing class CarTriggerHandler extends TriggerHandler {
 
     public override void afterUpdate(){
         CarService.approvalProcess(newCarList);
+        System.enqueueJob(new CurrencyQueueable(newCarList, oldCarMap));
+
     }
 }
