@@ -161,7 +161,15 @@
         <type>AutoNumber</type>
     </nameField>
     <pluralLabel>Car Parts</pluralLabel>
-    <searchLayouts></searchLayouts>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Car__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Is_Export__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Type__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Weight__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Is_Sold__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Price__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Container__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>

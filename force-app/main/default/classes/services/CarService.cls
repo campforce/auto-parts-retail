@@ -98,21 +98,16 @@ public with sharing class CarService {
     * @author MartinCapek
     */
     public static void distanceCalc(List<Car__c> newList) {
-        //Static yard location
         final  Location yard = Location.newInstance(40.453151587554444, -76.43538154417556);
-
-        //Map to capture Account ID and  related Car__c
-        Map <Id, Car__c> CarsByAccountIds = new Map <Id,Car__c>();
-        //Get values in the  CarsByAccountIds map from list of cars
+        Map <Id, Car__c> carsByAccountIds = new Map <Id,Car__c>();        
         for (Car__c car: newList) {
-            CarsByAccountIds.put (car.Account__c, car);
+            carsByAccountIds.put(car.Account__c, car);
         }
-        for(Account relAccount : [SELECT Id, Geolocation__c FROM Account WHERE Id In : CarsByAccountIds.keySet()]) {
-            CarsByAccountIds.get(relAccount.Id).Distance__c = Location.getDistance(relAccount.geolocation__C,yard,'mi');
+        for(Account relAccount : [SELECT Id, Geolocation__c FROM Account WHERE Id In : CarsByAccountIds.keySet() AND Geolocation__Latitude__s != NULL AND Geolocation__Longitude__s != NULL]) {
+            carsByAccountIds.get(relAccount.Id).Distance__c = Location.getDistance(relAccount.Geolocation__c, yard, 'mi');
         }
     }
 
-    
     public static void valdiateCurrencyField(Map<Id, Car__c> newMap, Map<Id, Car__c> oldMap){
         for(Car__c c : newMap.values()){
             if((oldMap.get(c.Id).Status__c != 'Done' && c.Status__c == 'Done') && c.Currency__c == null){
