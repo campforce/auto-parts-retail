@@ -15,6 +15,7 @@ public with sharing class CarPartTriggerHandler extends TriggerHandler {
     public override void beforeUpdate() {   
         CarPartService.handleSell(oldCarPartMap,  newCarPartMap); 
         CarPartService.loadToContainer(oldCarPartList, newCarPartList);
+        CarPartService.ValidateContainerField(newCarPartList);
     }
 
     public override void afterInsert() {   
@@ -23,5 +24,8 @@ public with sharing class CarPartTriggerHandler extends TriggerHandler {
 
     public override void beforeInsert() {
         CarPartService.loadToContainer(newCarPartList);
+        CarPartService.ValidateContainerField(newCarPartList);
     }
+
+
 }
