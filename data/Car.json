@@ -1,0 +1,32 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Car__c",
+        "referenceId": "CarRef1"
+      },
+      "Name": "Toyota",
+      "Driver__c": "@ContactRef2",
+      "Account__c": "@AccountRef3",
+      "Car_Cost__c": 2000,
+      "Comission__c": 250,
+      "Dismantle__c": null,
+      "Dismantled_Date__c": "2022-08-10",
+      "Distance__c": null,
+      "Is_Dismantled__c": true,
+      "Is_Drivable__c": true,
+      "Is_Paid__c": false,
+      "Is_Picked_Up__c": true,
+      "Master__c": "@ContactRef1",
+      "Penalty_Cost__c": null,
+      "Purchase_Date__c": "2022-08-01T19:00:00.000+0000",
+      "Revenue__c": null,
+      "Status__c": "Auction",
+      "Storage_Cost__c": null,
+      "Total_Cost__c": null,
+      "Transportation__c": null,
+      "Vin_Code__c": "WDB1680311J978069",
+      "Weight__c": 3000
+    }
+  ]
+}

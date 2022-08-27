@@ -1,0 +1,24 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Finance_Transaction__c",
+        "referenceId": "FinanceTransactionRef1"
+      },
+      "Amount__c": 200,
+      "Car_Part__c": "@CarPartRef1",
+      "Car__c": "@CarRef1",
+      "Type__c": "Sell"
+    },
+    {
+      "attributes": {
+        "type": "Finance_Transaction__c",
+        "referenceId": "FinanceTransactionRef2"
+      },
+      "Amount__c": 200,
+      "Car_Part__c": "@CarPartRef2",
+      "Car__c": "@CarRef1",
+      "Type__c": "Sell"
+    }
+  ]
+}

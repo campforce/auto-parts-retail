@@ -1,0 +1,19 @@
+{
+  "records": [
+    {
+      "attributes": {
+        "type": "Container__c",
+        "referenceId": "ContainerRef1"
+      },
+      "Account__c": "@AccountRef2",
+      "Capacity__c": 200,
+      "Shipping_City__c": null,
+      "Shipping_Country__c": null,
+      "Shipping_Postal_Code__c": null,
+      "Shipping_Price__c": null,
+      "Shipping_Street__c": null,
+      "Status__c": "Loading",
+      "Weight__c": null
+    }
+  ]
+}

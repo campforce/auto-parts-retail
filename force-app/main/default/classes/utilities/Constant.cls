@@ -1,8 +1,8 @@
 public class Constant {
 
-    public final static Integer GOOGLE_API_KEY {
+    public final static String GOOGLE_API_KEY {
         get {
-            return Integer.valueOf(get('GOOGLE_API_KEY'));
+            return get('GOOGLE_API_KEY');
         }
     }
 
