@@ -13,7 +13,7 @@ public with sharing class CurrencyConverterIntegration {
         string today = String.valueOf(System.today());
         req.setEndpoint('https://api.apilayer.com/fixer/convert?from='+sourceCurrency+'&to='+targetCurrency+'&amount='+amount+'&date='+dateExc);
         req.setMethod('GET');
-        req.setHeader('apikey', 'P9f5acr8ShSVgfH8fezh9QataImv4n4K');
+        req.setHeader('apikey', Constant.CURRENCY_API_KEY);
         res = http.send(req);
         Map<string, object> responseMap = (Map<string, object>) JSON.deserializeUntyped(res.getbody());
         System.debug(responseMap);

@@ -154,6 +154,12 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
+                <componentName>lwcCarSoldPartChart</componentName>
+                <identifier>c_lwcCarSoldPartChart</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
                 <componentName>lwcPdfGeneratorForCarParts</componentName>
                 <identifier>c_lwcPdfGeneratorForCarParts</identifier>
                 <visibilityRule>
