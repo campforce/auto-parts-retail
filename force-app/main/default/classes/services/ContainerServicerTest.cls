@@ -11,7 +11,7 @@ private class ContainerServicerTest {
         insert car;
         Container__c container = new Container__c(Account__c = acc.id);
         insert container;
-        Car_Part__c carPart = new Car_Part__c(Car__c = car.id, Container__c = container.id);
+        Car_Part__c carPart = new Car_Part__c(Car__c = car.id, Container__c = container.id, Is_Export__c = true);
         insert carPart;
     }
 

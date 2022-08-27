@@ -166,7 +166,16 @@
         <type>Text</type>
     </nameField>
     <pluralLabel>Cars</pluralLabel>
-    <searchLayouts></searchLayouts>
+    <searchLayouts>
+        <searchResultsAdditionalFields>Vin_Code__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Account__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Driver__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Weight__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Car_Cost__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Status__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Revenue__c</searchResultsAdditionalFields>
+        <searchResultsAdditionalFields>Is_Dismantled__c</searchResultsAdditionalFields>
+    </searchLayouts>
     <sharingModel>ControlledByParent</sharingModel>
     <visibility>Public</visibility>
 </CustomObject>
