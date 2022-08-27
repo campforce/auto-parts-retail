@@ -14,4 +14,14 @@ public class FinanceTransactionTriggerHandler extends TriggerHandler {
 
     public override void beforeUpdate() {
     }
+
+    public override void afterUpdate(){
+        FinanceTransactionService.UpdateCostFieldsofCar(newFinanceTransactionList);
+    }
+
+    public override void afterInsert(){
+        FinanceTransactionService.UpdateCostFieldsofCar(newFinanceTransactionList);
+    }
+
+
 }
