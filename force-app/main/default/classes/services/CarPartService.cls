@@ -90,4 +90,16 @@ public with sharing class CarPartService {
             update containers;
         }
     }
-}
+
+    public static void ValidateContainerField(List<Car_Part__c> carParts){
+                for(Car_Part__c acc : carParts){
+                     if(acc.Is_Export__c == true && acc.Container__c==null ){
+                         acc.Container__c.addError('This parts are not for export');
+                     }
+                   else if(acc.Is_Export__c == False && acc.Container__c!=null){
+                       acc.Container__c.addError('You can not choose  Container for Local parts');
+                   }
+         
+                 }
+                }
+} 
