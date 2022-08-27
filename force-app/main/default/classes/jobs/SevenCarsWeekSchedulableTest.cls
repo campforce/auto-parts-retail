@@ -1,5 +1,5 @@
 @isTest
-public class SevenCarsWeekTest2{
+public class SevenCarsWeekSchedulableTest {
     @isTest
     static void finTransTest() {
 
