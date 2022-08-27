@@ -154,18 +154,6 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>lwcCarSoldPartChart</componentName>
-                <identifier>c_lwcCarSoldPartChart</identifier>
-            </componentInstance>
-        </itemInstances>    
-        <itemInstances>
-            <componentInstance>
-                <componentName>map</componentName>
-                <identifier>c_map</identifier>
-            </componentInstance>
-        </itemInstances>
-        <itemInstances>
-            <componentInstance>
                 <componentName>lwcPdfGeneratorForCarParts</componentName>
                 <identifier>c_lwcPdfGeneratorForCarParts</identifier>
                 <visibilityRule>
@@ -175,6 +163,18 @@
                         <rightValue>true</rightValue>
                     </criteria>
                 </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentName>map</componentName>
+                <identifier>c_map</identifier>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentName>lwcCarSoldPartChart</componentName>
+                <identifier>c_lwcCarSoldPartChart</identifier>
             </componentInstance>
         </itemInstances>
         <itemInstances>
