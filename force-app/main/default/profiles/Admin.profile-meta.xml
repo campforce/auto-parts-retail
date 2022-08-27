@@ -94,7 +94,7 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>DismantledCarsMonthlyReport</apexClass>
+        <apexClass>DismantledCarsMonthlyReportSchedulable</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
