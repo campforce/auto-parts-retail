@@ -1,24 +1,6 @@
 @IsTest(SeeAllData=false)
 private class CarServiceTest {
 
-    @IsTest
-    static void ApprovalProcessTest() {
-        //given 
-        Contact con=new Contact (LastName='Stan');
-        insert con;
-        Car__c car = new Car__c (name='Tesla', Status__c= 'On the Road', Driver__c =con.Id);
-        insert car;
-		car.Status__c = 'In The Yard';
-        
-        //when
-        test.startTest();
-        update car;
-        test.stopTest();
-
-        Car__c carTest = [Select Id, name, Status__c, Driver__c From Car__c Where Id=: car.Id];
-        System.assertEquals(carTest.Status__c, car.Status__c);
-    }
-
     @isTest
     static void CommissionCalculatorTest() {
         //given 
@@ -68,5 +50,27 @@ private class CarServiceTest {
         } catch (Exception e){
             System.assert(e.getMessage().contains('currency'));
         }
+    }
+    @isTest
+    static void handleDrivableTest() {
+        //given 
+       	Contact cont=new Contact(LastName='John');
+        insert cont;
+
+        Car__c drivable= new Car__c (Name='Mercedes', Driver__c=cont.Id, Is_Drivable__c=true);
+        Car__c notDrivable= new Car__c (Name='Peugeot', Driver__c=cont.Id, Is_Drivable__c=false);
+        
+        //when
+        Test.startTest();
+        insert drivable;
+        insert notDrivable;
+        Test.stopTest();
+        
+        //then
+        Car__c testDrivable= [SELECT Id, Name, Driver__c, Transportation__c FROM Car__c WHERE Id=:drivable.Id];
+        Car__c testNotDrivable= [SELECT Id, Name, Driver__c, Transportation__c FROM Car__c WHERE Id=:notDrivable.Id];
+              
+        System.assertEquals(0, testDrivable.Transportation__c);
+        System.assertEquals(100, testNotDrivable.Transportation__c);
     }
 }

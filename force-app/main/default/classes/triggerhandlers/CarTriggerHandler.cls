@@ -19,6 +19,7 @@ public with sharing class CarTriggerHandler extends TriggerHandler {
         CarService.DistanceCalc(newCarList);
         CarService.valdiateCurrencyField(newCarMap, oldCarMap);
         CarService.handleDrivable(oldCarMap,newCarList);
+        CarService.calculateTransportation(oldCarMap, newCarList);
     }
   
     public override void beforeInsert() {
@@ -26,16 +27,15 @@ public with sharing class CarTriggerHandler extends TriggerHandler {
         CarService.carTotalCost(newCarList);
         CarService.DistanceCalc(newCarList);
         CarService.handleDrivable(null, newCarList);
-
+        CarService.calculateTransportation(null, newCarList);
     }
     
     public override void afterInsert(){
-        CarService.approvalProcess(newCarList);
+        CarService.approvalProcess(newCarList,null);
     } 
 
     public override void afterUpdate(){
-        CarService.approvalProcess(newCarList);
-        System.enqueueJob(new CurrencyQueueable(newCarList, oldCarMap));
-
+        CarService.approvalProcess(newCarList, oldCarMap);
+        System.enqueueJob(new CurrencyQueueable(newCarList,oldCarMap));
     }
 }

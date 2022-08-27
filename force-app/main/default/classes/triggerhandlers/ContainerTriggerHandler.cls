@@ -16,4 +16,11 @@ public with sharing class ContainerTriggerHandler extends TriggerHandler {
         ContainerService.minimumRequirements(newContainerMap, oldContainerMap);
         ContainerService.checkPayments(new Set<Container__c>(newContainerList));
     }
+
+    public override void afterInsert() {
+        ContainerService.sendEmailNotification(Trigger.new);
+    }
+    public override void afterUpdate() {
+        ContainerService.sendEmailNotification(Trigger.new);
+    }
 }

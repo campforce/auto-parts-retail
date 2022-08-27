@@ -6,7 +6,7 @@
         "referenceId": "CarPartRef1"
       },
       "Car__c": "@CarRef1",
-      "Is_Export__c": true,
+      "Is_Export__c": false,
       "Is_Sold__c": false,
       "Price__c": 200,
       "Type__c": "Nose Cut",
@@ -18,7 +18,7 @@
         "referenceId": "CarPartRef2"
       },
       "Car__c": "@CarRef1",
-      "Is_Export__c": true,
+      "Is_Export__c": false,
       "Is_Sold__c": true,
       "Price__c": 500,
       "Type__c": "Engine",
