@@ -1,4 +1,4 @@
-public with sharing class EmailNotificationAfterThreeDays implements Database.Batchable<SObject>, Schedulable {
+public with sharing class EmailNotificationAfterThreeDaysBatch implements Database.Batchable<SObject>, Schedulable {
 
  /**
      * Method to send email notification on the 3 day if the car has not paid.
@@ -8,7 +8,7 @@ public with sharing class EmailNotificationAfterThreeDays implements Database.Ba
      */
     
     public void execute(System.SchedulableContext sc){
-             EmailNotificationAfterThreeDays batch = new EmailNotificationAfterThreeDays();
+        EmailNotificationAfterThreeDaysBatch batch = new EmailNotificationAfterThreeDaysBatch();
              Database.executeBatch(batch, 200);
          }
     

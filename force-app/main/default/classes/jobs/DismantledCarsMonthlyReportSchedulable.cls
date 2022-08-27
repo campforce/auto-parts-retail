@@ -1,4 +1,4 @@
-public with sharing class DismantledCarsMonthlyReport implements Schedulable{
+public with sharing class DismantledCarsMonthlyReportSchedulable implements Schedulable{
     public void execute(System.SchedulableContext sc) {
         Date firstDate = Date.today().toStartOfMonth();
         Date lastDate = firstDate.addMonths(1).toStartofMonth().addDays(-1);
