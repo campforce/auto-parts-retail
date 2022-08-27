@@ -1,11 +1,7 @@
-/**
- * Created by omurzakov on 20.08.2022.
- */
 @IsTest(SeeAllData=false)
-
 private class CarServiceTest {
 
-    @IsTest
+    @isTest
     static void CommissionCalculatorTest() {
         //given 
         Contact cont=new Contact(LastName='John');
@@ -39,6 +35,42 @@ private class CarServiceTest {
         System.assertEquals(testPriceLess5000.Comission__c, 300);
         System.assertEquals(testPriceLess10000.Comission__c, 350);
         System.assertEquals(testPriceMore10000.Comission__c, 400);    
+    }
 
+    @IsTest
+    static void validateCurrencyFieldTest() {
+        //given 
+        Contact con = new Contact (LastName='Stan');
+        insert con;
+        Car__c car = new Car__c (name='Tesla', Driver__c =con.Id);
+        insert car;
+		car.Status__c = 'Done';
+        try{
+            update car;
+        } catch (Exception e){
+            System.assert(e.getMessage().contains('currency'));
+        }
+    }
+    @isTest
+    static void handleDrivableTest() {
+        //given 
+       	Contact cont=new Contact(LastName='John');
+        insert cont;
+
+        Car__c drivable= new Car__c (Name='Mercedes', Driver__c=cont.Id, Is_Drivable__c=true);
+        Car__c notDrivable= new Car__c (Name='Peugeot', Driver__c=cont.Id, Is_Drivable__c=false);
+        
+        //when
+        Test.startTest();
+        insert drivable;
+        insert notDrivable;
+        Test.stopTest();
+        
+        //then
+        Car__c testDrivable= [SELECT Id, Name, Driver__c, Transportation__c FROM Car__c WHERE Id=:drivable.Id];
+        Car__c testNotDrivable= [SELECT Id, Name, Driver__c, Transportation__c FROM Car__c WHERE Id=:notDrivable.Id];
+              
+        System.assertEquals(0, testDrivable.Transportation__c);
+        System.assertEquals(100, testNotDrivable.Transportation__c);
     }
 }

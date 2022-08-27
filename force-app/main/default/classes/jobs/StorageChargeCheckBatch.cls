@@ -1,4 +1,5 @@
 public with sharing class StorageChargeCheckBatch implements Database.Batchable<sObject>{
+   
     public Database.QueryLocator start(Database.BatchableContext bc){
         //Get all purchased cars
         String query= 'Select id, Purchase_Date__c From Car__c Where Purchase_Date__c != null AND Is_Picked_Up__c = false';
@@ -52,6 +53,5 @@ public with sharing class StorageChargeCheckBatch implements Database.Batchable<
     }
 
     public void finish(Database.BatchableContext bc){
-
     }
 }
