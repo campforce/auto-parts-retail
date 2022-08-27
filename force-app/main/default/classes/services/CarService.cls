@@ -45,12 +45,7 @@ public with sharing class CarService {
       }
     }    
 
-    /**
-     * Method to calculate auction commissions according to price ranges.
-     *
-     * @param newList newly inserted, updates properties
-     * @author GulnazAtabaeva
-     */
+     
     public static void commissionCalculator(List <Car__c> newList) {
         for (Car__c car : newList) {
             if (car.Car_Cost__c <= 1000) { //commission up to 1000$
