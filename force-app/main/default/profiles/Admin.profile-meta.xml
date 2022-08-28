@@ -102,6 +102,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>EmailNotificationAfterThreeDaysBatch</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>FinanceTransactionService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -115,6 +119,14 @@
     </classAccesses>
     <classAccesses>
         <apexClass>GeolocationStructure</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LwcCarSoldPartChartController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>LwcCarSoldPartChartControllerTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -147,6 +159,10 @@
     </classAccesses>
     <classAccesses>
         <apexClass>SevenCarsWeekSchedulable</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>SevenCarsWeekSchedulableTest</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
