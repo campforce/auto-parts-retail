@@ -8,7 +8,7 @@ public class CarPartSelector extends fflib_SObjectSelector {
     }
 
     public Schema.SObjectType getSObjectType() {
-        return Car_Part__c.sObjectType;
+        return Car_Part__c.SObjectType;
     }
 
     public List<Car_Part__c> selectById(Set<Id> idSet) {

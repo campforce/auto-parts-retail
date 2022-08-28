@@ -9,7 +9,7 @@ public class FinanceTransactionSelector extends fflib_SObjectSelector {
     }
 
     public Schema.SObjectType getSObjectType() {
-        return Finance_Transaction__c.sObjectType;
+        return Finance_Transaction__c.SObjectType;
     }
 
     public List<Finance_Transaction__c> selectById(Set<Id> idSet) {

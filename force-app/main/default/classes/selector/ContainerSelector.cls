@@ -9,7 +9,7 @@ public class ContainerSelector extends fflib_SObjectSelector {
     }
 
     public Schema.SObjectType getSObjectType() {
-        return Container__c.sObjectType;
+        return Container__c.SObjectType;
     }
 
     public List<Container__c> selectById(Set<Id> idSet) {
